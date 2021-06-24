@@ -3,6 +3,7 @@ const operations = document.querySelectorAll(".operation");
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
 const backspace = document.querySelector("#backspace");
+const negative = document.querySelector("#negative");
 const previous = document.querySelector("#previous");
 const current = document.querySelector("#current");
 
@@ -22,7 +23,7 @@ numbers.forEach(button => {
 
 operations.forEach(button => {
     button.addEventListener("click", () => {
-        if (current.textContent === "" || current.textContent === ".") return;
+        if (current.textContent === "" || current.textContent === "." || current.textContent === "-") return;
         if (n1 === "") {
             n1 = Number(current.textContent);
             if (previous.textContent.indexOf("=") === -1) {
@@ -42,7 +43,7 @@ operations.forEach(button => {
 });
 
 equals.addEventListener("click", () => {
-    if (n1 === "" || current.textContent === "" || current.textContent === ".") return;
+    if (n1 === "" || current.textContent === "" || current.textContent === "." || current.textContent === "-") return;
     n2 = Number(current.textContent);
     previous.textContent += " " + current.textContent + " =";
     current.textContent = operate(n1, n2);
@@ -61,6 +62,14 @@ clear.addEventListener("click", () => {
 
 backspace.addEventListener("click", () => {
     current.textContent = current.textContent.slice(0, -1);
+});
+
+negative.addEventListener("click", () => {
+    if (current.textContent.indexOf("-") === -1) {
+        current.textContent = "-" + current.textContent;
+    } else {
+        current.textContent = current.textContent.slice(1);
+    }
 });
 
 function operate(a, b) {
