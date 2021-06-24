@@ -54,8 +54,8 @@ main {
     width: 90%;
     height: 65%;
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(4, 21.25%);
+    grid-template-rows: repeat(5, 16%);
     grid-gap: 5%;
 }
 

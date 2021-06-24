@@ -2,6 +2,7 @@ const numbers = document.querySelectorAll(".number");
 const operations = document.querySelectorAll(".operation");
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
+const backspace = document.querySelector("#backspace");
 const previous = document.querySelector("#previous");
 const current = document.querySelector("#current");
 
@@ -56,6 +57,10 @@ clear.addEventListener("click", () => {
     n1 = "";
     n2 = "";
     operator = "";
+});
+
+backspace.addEventListener("click", () => {
+    current.textContent = current.textContent.slice(0, -1);
 });
 
 function operate(a, b) {
