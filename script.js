@@ -72,5 +72,7 @@ function operate(a, b) {
         return a * b;
     } else if (operator === "/") {
         return a / b;
+    } else if (operator === "%") {
+        return b / 100 * a;
     }
 }
