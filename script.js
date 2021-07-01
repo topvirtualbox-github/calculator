@@ -26,6 +26,11 @@ operations.forEach(button => {
             previous.textContent = previous.textContent.slice(0, -1) + operator;
             return;
         }
+        if (Number(current.textContent) === 0 && operator === "/") {
+            alert("ERROR");
+            current.textContent = "";
+            return;
+        }
         if (n1 === "") {
             n1 = Number(current.textContent);
         } else {
@@ -41,6 +46,11 @@ operations.forEach(button => {
 
 equals.addEventListener("click", () => {
     if (n1 === "" || current.textContent === "" || current.textContent === "." || current.textContent === "-" || current.textContent === "-.") return;
+    if (Number(current.textContent) === 0 && operator === "/") {
+        alert("ERROR");
+        current.textContent = "";
+        return;
+    }
     n2 = Number(current.textContent);
     previous.textContent += " " + n2 + " =";
     current.textContent = operate(n1, n2);
