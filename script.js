@@ -80,9 +80,12 @@ negative.addEventListener("click", () => {
 });
 
 function operate(a, b) {
-    if (operator === "+") return a + b;
-    else if (operator === "-") return a - b;
-    else if (operator === "*") return a * b;
-    else if (operator === "/") return a / b;
-    else if (operator === "%") return b / 100 * a;
+    let answer = "";
+    if (operator === "+") answer = a + b;
+    else if (operator === "-") answer = a - b;
+    else if (operator === "*") answer = a * b;
+    else if (operator === "/") answer = a / b;
+    else if (operator === "%") answer = b / 100 * a;
+    answer = Number(answer.toFixed(10));
+    return answer;
 }
